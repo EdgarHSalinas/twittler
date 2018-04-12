@@ -16,21 +16,19 @@ $(document).ready(function(){
   
    var $tweetText = $('<p class="tweetText">'+ tweet.message +'</p>');
 
-   // console.log(tweet.created_at);
+   
    var $creationTime = $('<span class="creation-time"></span>');
-   // $tweet.text(' ' + tweet.message + ' ');
+   
    $username.prependTo($tweet);
    $tweetText.appendTo($tweet);
    $creationTime.appendTo($tweet);
    $creationTime.livestamp(tweet.created_at);
-   // $creationTime.moment().fromNow();
-   // $creationTime.startOf('hour').fromNow();
    return $tweet;
  };
   
  var lastNewest = streams.home.length - 1;
 
- // var index = streams.home.length - 1;
+
 
  // add latest tweets
  var addNewTweets = function(newest, oldest, collection) {
@@ -50,14 +48,41 @@ $(document).ready(function(){
  $($button).on('click', function(){
    addNewTweets(streams.home.length - 1, lastNewest + 1);
  });
+ 
+ // search on clicked a.username link 
+ $('div').on('click', 'a.username', function() {
+  var username = $(this).data('user');
+  $tweets.empty();
+  var userTweets = streams.users[username];
+  addNewTweets(userTweets.length - 1, 0, userTweets);
+ });
+
+ // submit new tweet
+ $submit.on('click', function() {
+  window.visitor = $('#visitor-name').val();
+  if  (!(visitor in streams.users)) {
+    streams.users[visitor] = [];
+  }        
+  writeTweet($('#visitor-tweet').val());
+  addNewTweets(streams.home.length - 1, lastNewest + 1);
+  $('#visitor-tweet').val('');
+});
+// Toggle tweet Box
+// var $tweetWriter = $('#tweet-writer');
+
+// $('.tweet-writer-control').click(function() {
+//  if ($tweetWriter.css('display') === 'block') {
+//    $tweetWriter.slideUp();
+//  } else {
+//    $tweetWriter.slideDown();
+//  }
+// });
 
 
- // while(index >= 0){
- //   var tweet = streams.home[index];
- //   var $tweet = $('<div></div>');
- //   $tweet.text('@' + tweet.user + ': ' + tweet.message);
- //   $tweet.appendTo($body);
- //   index -= 1;
- // }
+// scroll to Top 
+$('#top').on('click', function () {
+  document.body.scrollTop = 0; // For Safari
+  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
+});
 
 });
