@@ -6,7 +6,7 @@ $(document).ready(function(){
 
  // build new jquery twee object
  var buildTweet = function(tweet) {
-   var $tweet = $('<div></div>');
+   var $tweet = $('<div class="tweet"></div>');
    $tweet.addClass('tweet');
 
    // clickable username
@@ -21,16 +21,16 @@ $(document).ready(function(){
    //   console.log(date);
    // };
    // var now = moment().format('MMMM Do YYYY, h:mm:ss a');
-   var now = moment();   
-   $("#now")
-   console.log(now);
+   // var now = moment();   
+   // $("#now")
+   // console.log(now);
 
-   console.log(tweet.created_at);
-   var $creationTime = $('<span class="creation-time">' + now + '</span>');
-   // var $creationTime = $('<span class="creation-time"></span>');
+   // console.log(tweet.created_at);
+   var $creationTime = $('<span class="creation-time"></span>');
    $tweet.text(' ' + tweet.message + ' ');
    $username.prependTo($tweet);
    $creationTime.appendTo($tweet);
+   $creationTime.livestamp(tweet.created_at);
    // $creationTime.moment().fromNow();
    // $creationTime.startOf('hour').fromNow();
    return $tweet;

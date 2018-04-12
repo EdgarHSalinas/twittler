@@ -6,12 +6,17 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <button id="refresh">See new Tweets</button>
-    <div id="tweets"></div>
+    <div class="content">
+      <button id="refresh">See new Tweets</button>
+    </div>
+    <div class="content">
+        <div class="tweet"id="tweets"></div>
+    </div>
+    
     <script src="jquery.js"></script>
     <script src="data_generator.js"></script>
     <script src="moment.js"></script>
-    <script>moment().format()</script>
+    <script src="livestamp.js"></script>
     <script src="app.js"></script>
   </body>
 </html>
