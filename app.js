@@ -13,22 +13,14 @@ $(document).ready(function(){
    var $username = $('<a class="username" data-user="' + tweet.user + '"></a>');
    $username.text('@' + tweet.user);
 
-   // time of tweet
-   // var date = tweet.created_at;
-   // var mDate = moment().startOf('hour').fromNow();
-   // var updateTime = function () {
-   //   date = moment(new Date());
-   //   console.log(date);
-   // };
-   // var now = moment().format('MMMM Do YYYY, h:mm:ss a');
-   // var now = moment();   
-   // $("#now")
-   // console.log(now);
+  
+   var $tweetText = $('<p class="tweetText">'+ tweet.message +'</p>');
 
    // console.log(tweet.created_at);
    var $creationTime = $('<span class="creation-time"></span>');
-   $tweet.text(' ' + tweet.message + ' ');
+   // $tweet.text(' ' + tweet.message + ' ');
    $username.prependTo($tweet);
+   $tweetText.appendTo($tweet);
    $creationTime.appendTo($tweet);
    $creationTime.livestamp(tweet.created_at);
    // $creationTime.moment().fromNow();
