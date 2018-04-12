@@ -14,17 +14,28 @@ $(document).ready(function(){
    $username.text('@' + tweet.user);
 
    // time of tweet
-   var date = tweet.created_at;
-   var mDate = moment().startOf('hour').fromNow();
-   console.log(mDate);
-   var $creationTime = $('<span class="creation-time">' + date + '</span>');
+   // var date = tweet.created_at;
+   // var mDate = moment().startOf('hour').fromNow();
+   // var updateTime = function () {
+   //   date = moment(new Date());
+   //   console.log(date);
+   // };
+   // var now = moment().format('MMMM Do YYYY, h:mm:ss a');
+   var now = moment();   
+   $("#now")
+   console.log(now);
+
+   console.log(tweet.created_at);
+   var $creationTime = $('<span class="creation-time">' + now + '</span>');
+   // var $creationTime = $('<span class="creation-time"></span>');
    $tweet.text(' ' + tweet.message + ' ');
    $username.prependTo($tweet);
    $creationTime.appendTo($tweet);
+   // $creationTime.moment().fromNow();
    // $creationTime.startOf('hour').fromNow();
    return $tweet;
  };
-
+  
  var lastNewest = streams.home.length - 1;
 
  // var index = streams.home.length - 1;
