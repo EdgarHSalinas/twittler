@@ -6,14 +6,26 @@
     <link rel="stylesheet" type="text/css" href="styles.css">
   </head>
   <body>
-    <header class="container">
-        <form id="tweet-entry">
-            <input type="text" id="visitor-name" placeholder="Enter your name."> <br>
-            <input type="text" id="visitor-tweet" placeholder="Enter your tweet."> <br>
-          </form>
-      <button class="add-tweets" id="send-tweet">
-        <span>Tweet</span>
+    <header class="hero container grid">
+      <section class="hero container" id="tweet-writer">
+        <!-- <form id="tweet-entry"> -->
+        <div class="row" id="tweet-entry">
+          <h1><strong>Compose new Tweet</strong></h1>
+            <label for="visitorInput">User</label>
+            <input type="text" id="visitor-name"> <br><br>
+            <label for="message">message</label>
+            <textarea type="text" id="visitor-tweet"></textarea>
+        </div>
+            <button class="add-tweets" id="send-tweet">
+                <span>Send Tweet!</span>
+            </button>
+        <!-- </form> -->
+      </section>
+      <section class="container">
+      <button class="add-tweets tweet-writer-control toggle-btn">
+        <span>Write Tweet</span>
       </button>
+    </section>
     </header>
     <section class="hero container">
       <div class="content">

@@ -3,6 +3,7 @@ $(document).ready(function(){
  var $button = $('#refresh');
  var $tweets = $('#tweets');
  var $submit = $('#send-tweet');
+ var $tweetWriter = $('#tweet-writer');
 
  // build new jquery twee object
  var buildTweet = function(tweet) {
@@ -66,17 +67,18 @@ $(document).ready(function(){
   writeTweet($('#visitor-tweet').val());
   addNewTweets(streams.home.length - 1, lastNewest + 1);
   $('#visitor-tweet').val('');
+  $tweetWriter.append('<p class="smalltext">Your tweet has been saved</p>');
 });
 // Toggle tweet Box
-// var $tweetWriter = $('#tweet-writer');
 
-// $('.tweet-writer-control').click(function() {
-//  if ($tweetWriter.css('display') === 'block') {
-//    $tweetWriter.slideUp();
-//  } else {
-//    $tweetWriter.slideDown();
-//  }
-// });
+
+$('.tweet-writer-control').click(function() {
+ if ($tweetWriter.css('display') === 'block') {
+   $tweetWriter.slideUp();
+ } else {
+   $tweetWriter.slideDown();
+ }
+});
 
 
 // scroll to Top 

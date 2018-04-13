@@ -215,7 +215,7 @@ button {
 	color: #657786;
 }
 a {
-	color: rgb(0, 132, 180);
+	color:  #1da1f2;
 	text-decoration: none;
 	cursor: pointer;
 }
@@ -228,19 +228,11 @@ strong, .username {
 	font-weight: 700;
 }
 
-form {
-	/* Just to center the form on the page */
-	margin: 0 auto;
-	width: 400px;
-	/* To see the outline of the form */
-	padding: 1em;
-	border: 1px solid #CCC;
-	border-radius: 1em;
-}
 
-form div + div {
+
+/* form div + div {
 	margin-top: 1em;
-}
+} */
 
 label {
 	/* To make sure that all labels have the same size and are properly aligned */
@@ -273,4 +265,25 @@ textarea {
 
 	/* To give enough room to type some text */
 	height: 5em;
+}
+
+#tweet-writer {
+	display: none;
+	position: relative;
+	margin-top: 100px;
+	padding: 2em;
+	background: #f5f8fa;
+	
+}
+
+.close-btn {
+	position: absolute;
+	right: 1em;
+	top: 1em;
+}
+
+.toggle-btn {
+	position: absolute;
+	right: 1em;
+	top: 2em;
 }
